@@ -1,4 +1,6 @@
 <script>
+  document.addEventListener("DOMContentLoaded", function() {
+
 gsap.registerPlugin(ScrollTrigger);
 
 const panels = gsap.utils.toArray(".panel");
@@ -93,7 +95,7 @@ document.querySelectorAll(".img-home-a").forEach(trigger => {
     if (nextPanel) tl.to(nextPanel, { x: "100vw", duration: 1, ease: "power2.inOut" }, "<");
   });
 });
-
+});
 </script>
 
 <script>
