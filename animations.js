@@ -1,9 +1,13 @@
-
-
+// -------------------------------
+// Scroll orizzontale e skew panels
+// -------------------------------
+document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger);
 
   const panels = gsap.utils.toArray(".panel");
   const wrapper = document.querySelector(".wrapper");
+
+  if (!wrapper) return;
 
   if (window.innerWidth > 991) { // desktop = scroll orizzontale
     let proxy = { skew: 0 };
@@ -17,11 +21,7 @@
         trigger: ".section-scroll",
         pin: true,
         scrub: 1.5,
-        snap: {
-          snapTo: 1 / (panels.length - 1),
-          duration: 0.2,
-          ease: "power2.inOut"
-        },
+        snap: 1 / (panels.length - 1),
         end: () => "+=" + wrapper.offsetWidth,
         onUpdate: self => {
           let velocity = self.getVelocity();
@@ -40,7 +40,6 @@
         }
       }
     });
-
   } else { // mobile = scroll verticale
     panels.forEach(p => gsap.set(p, { skewX: 0 }));
   }
@@ -48,7 +47,6 @@
   // -------------------------------
   // Click animazione su img-home-a
   // -------------------------------
-
   gsap.utils.toArray(".img-home-a").forEach(trigger => {
     trigger.addEventListener("click", e => {
       e.preventDefault();
@@ -56,7 +54,7 @@
       const url = trigger.closest("a")?.href ?? "#";
       const currentPanel = trigger.closest(".panel");
       if (!currentPanel) return;
-      
+
       const prevPanel = currentPanel.previousElementSibling;
       const nextPanel = currentPanel.nextElementSibling;
 
@@ -64,9 +62,12 @@
       const cta = currentPanel.querySelector(".go-to-project");
       const image = currentPanel.querySelector(".img_home");
       const bg = document.querySelector(".transition-bg");
-     
+
+      // Debug: controlla che tutti gli elementi esistano
+      console.log("Click panel:", currentPanel, { title, cta, image, bg });
+
       if (!title || !cta || !image || !bg) return;
-       alert("Hai cliccato il pulsante5");
+
       const tl = gsap.timeline({
         defaults: { ease: "power2.inOut" },
         onComplete: () => window.location.href = url
@@ -91,11 +92,8 @@
       if (prevPanel) tl.to(prevPanel, { x: "-100vw", duration: 1, ease: "power2.inOut" }, "<");
       if (nextPanel) tl.to(nextPanel, { x: "100vw", duration: 1, ease: "power2.inOut" }, "<");
     });
-    });
-
-
-
-
+  });
+});
 
 // -------------------------------
 // Handle pageshow / cache back
@@ -121,6 +119,4 @@ window.addEventListener("load", () => {
 
   gsap.to(overlay, { y: "-100%", duration: 1.2, ease: "power4.inOut" });
   gsap.to(transitionLogo, { y: "100%", duration: 1.2, ease: "power4.inOut" });
-  
 });
-
