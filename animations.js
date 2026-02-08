@@ -1,5 +1,4 @@
-
-  document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() {
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -93,9 +92,7 @@ document.querySelectorAll(".img-home-a").forEach(trigger => {
   });
 });
 });
-</script>
 
-<script>
 window.addEventListener("pageshow", function (event) {
   if (event.persisted) {
     window.location.reload();
