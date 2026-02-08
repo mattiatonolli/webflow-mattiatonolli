@@ -1,4 +1,4 @@
-<script>
+
   document.addEventListener("DOMContentLoaded", function() {
 
 gsap.registerPlugin(ScrollTrigger);
@@ -50,10 +50,7 @@ if(window.innerWidth > 991){ // desktop = scroll orizzontale
   // Solo rimuoviamo eventuale skew
   panels.forEach(p => gsap.set(p, { skewX: 0 }));
 }
-</script>
 
-
-<script>
 document.querySelectorAll(".img-home-a").forEach(trigger => {
   trigger.addEventListener("click", function(e) {
     e.preventDefault();
@@ -104,9 +101,7 @@ window.addEventListener("pageshow", function (event) {
     window.location.reload();
   }
 });
-</script>
 
-<script>
 window.addEventListener("load", () => {
   const overlay = document.querySelector(".back-transition-end");
   const transition_logo = document.querySelector(".transition-logo");
@@ -134,11 +129,6 @@ window.addEventListener("load", () => {
     ease: "power4.inOut"
   });
 });
-</script>
 
 
-<style>
-html, body {
-  overflow-x: hidden;
-}
-</style>
+
