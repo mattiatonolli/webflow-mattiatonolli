@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // -------------------------------
   // Click animazione su img-home-a
   // -------------------------------
-  gsap.utils.toArray(".img-home-a").forEach(trigger => {
+/*  gsap.utils.toArray(".img-home-a").forEach(trigger => {
     trigger.addEventListener("click", e => {
       e.preventDefault();
 
@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (nextPanel) tl.to(nextPanel, { x: "100vw", duration: 1, ease: "power2.inOut" }, "<");
     });
   });
-});
+});*/
 
 // -------------------------------
 // Handle pageshow / cache back
