@@ -90,6 +90,8 @@
       if (prevPanel) tl.to(prevPanel, { x: "-100vw", duration: 1, ease: "power2.inOut" }, "<");
       if (nextPanel) tl.to(nextPanel, { x: "100vw", duration: 1, ease: "power2.inOut" }, "<");
     });
+    });
+
   });
 
 
