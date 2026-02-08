@@ -51,7 +51,6 @@
 
   gsap.utils.toArray(".img-home-a").forEach(trigger => {
     trigger.addEventListener("click", e => {
-      alert("qui arriva");
       e.preventDefault();
 
       const url = trigger.closest("a")?.href ?? "#";
