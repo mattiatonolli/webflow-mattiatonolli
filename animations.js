@@ -50,49 +50,49 @@ if(window.innerWidth > 991){ // desktop = scroll orizzontale
   panels.forEach(p => gsap.set(p, { skewX: 0 }));
 }
 
-document.querySelectorAll(".img-home-a").forEach(trigger => {
-  trigger.addEventListener("click", function(e) {
-    e.preventDefault();
 
-    const url = this.closest("a") ? this.closest("a").href : "#";
 
-    // Prendo il panel corrente
-    const currentPanel = this.closest(".panel");
-    const prevPanel = currentPanel.previousElementSibling;
-    const nextPanel = currentPanel.nextElementSibling;
 
-    const title = currentPanel.querySelector(".project-name");
-    const cta = currentPanel.querySelector(".go-to-project");
-    const image = currentPanel.querySelector(".img_home");
-    const bg = document.querySelector(".transition-bg");
+  
+document.addEventListener("DOMContentLoaded", () => {
+  gsap.utils.toArray(".img-home-a").forEach(trigger => {
+    trigger.addEventListener("click", function(e) {
+      e.preventDefault();
 
-    if (!title || !cta || !image) return;
+      const url = this.closest("a")?.href ?? "#";
+      const currentPanel = this.closest(".panel");
+      if (!currentPanel) return;
 
-    const tl = gsap.timeline({
-      defaults: { ease: "power2.inOut" },
-      onComplete: () => {
-        window.location.href = url;
-      }
+      const prevPanel = currentPanel.previousElementSibling;
+      const nextPanel = currentPanel.nextElementSibling;
+
+      const title = currentPanel.querySelector(".project-name");
+      const cta = currentPanel.querySelector(".go-to-project");
+      const image = currentPanel.querySelector(".img_home");
+      const bg = document.querySelector(".transition-bg");
+      if (!title || !cta || !image || !bg) return;
+
+      const tl = gsap.timeline({
+        defaults: { ease: "power2.inOut" },
+        onComplete: () => window.location.href = url
+      });
+
+      tl.to([title, cta], { y: "-100%", duration: 0.9, stagger: 0.05, ease: "power4.inOut" });
+      tl.to(bg, { opacity: 1, duration: 1.5, ease: "power4.inOut" }, "<");
+      tl.to(image, { scaleX: 2.5, scaleY: 2.5, transformOrigin: "center center", duration: 1.8, ease: "power4.inOut" }, "<");
+
+      if (prevPanel) tl.to(prevPanel, { x: "-100vw", duration: 1, ease: "power2.inOut" }, "<");
+      if (nextPanel) tl.to(nextPanel, { x: "100vw", duration: 1, ease: "power2.inOut" }, "<");
     });
-
-    // 1️⃣ Testi: salgono e spariscono
-    tl.to([title, cta], { y: "-100%", duration: 0.9, stagger: 0.05, ease: "power4.inOut" });
-
-    // 2️⃣ Background diventa nero
-    tl.to(bg, { opacity: 1, duration: 1.5, ease: "power4.inOut" }, "<");
-
-    // 3️⃣ Immagine: zoom centrale
-    tl.to(image, { scaleX: "2.5", // scala solo in larghezza
-  								 scaleY: "2.5", // scala solo in altezza
- 									 transformOrigin: "center center", duration: 1.8, ease: "power4.inOut" }, "<");
-
-    // 4️⃣ Pannelli laterali: escono dalla viewport
-    if (prevPanel) tl.to(prevPanel, { x: "-100vw", duration: 1, ease: "power2.inOut" }, "<");
-    if (nextPanel) tl.to(nextPanel, { x: "100vw", duration: 1, ease: "power2.inOut" }, "<");
   });
 });
-});
 
+
+
+
+
+
+  
 window.addEventListener("pageshow", function (event) {
   if (event.persisted) {
     window.location.reload();
