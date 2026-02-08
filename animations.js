@@ -56,7 +56,7 @@
       const url = trigger.closest("a")?.href ?? "#";
       const currentPanel = trigger.closest(".panel");
       if (!currentPanel) return;
-      alert("Hai cliccato il pulsante3");
+      
       const prevPanel = currentPanel.previousElementSibling;
       const nextPanel = currentPanel.nextElementSibling;
 
@@ -64,6 +64,7 @@
       const cta = currentPanel.querySelector(".go-to-project");
       const image = currentPanel.querySelector(".img_home");
       const bg = document.querySelector(".transition-bg");
+      alert("Hai cliccato il pulsante4");
       if (!title || !cta || !image || !bg) return;
       
       const tl = gsap.timeline({
