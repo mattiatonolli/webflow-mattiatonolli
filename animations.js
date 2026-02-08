@@ -64,9 +64,9 @@
       const cta = currentPanel.querySelector(".go-to-project");
       const image = currentPanel.querySelector(".img_home");
       const bg = document.querySelector(".transition-bg");
-      alert("Hai cliccato il pulsante4");
+     
       if (!title || !cta || !image || !bg) return;
-      
+       alert("Hai cliccato il pulsante5");
       const tl = gsap.timeline({
         defaults: { ease: "power2.inOut" },
         onComplete: () => window.location.href = url
