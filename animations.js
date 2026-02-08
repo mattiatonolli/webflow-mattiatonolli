@@ -120,6 +120,6 @@ window.addEventListener("load", () => {
 
   gsap.to(overlay, { y: "-100%", duration: 1.2, ease: "power4.inOut" });
   gsap.to(transitionLogo, { y: "100%", duration: 1.2, ease: "power4.inOut" });
-  });
+  
 });
 
