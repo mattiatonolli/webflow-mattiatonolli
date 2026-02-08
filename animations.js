@@ -52,7 +52,7 @@
   gsap.utils.toArray(".img-home-a").forEach(trigger => {
     trigger.addEventListener("click", e => {
       e.preventDefault();
-
+alert("Hai cliccato il pulsante!");
       const url = trigger.closest("a")?.href ?? "#";
       const currentPanel = trigger.closest(".panel");
       if (!currentPanel) return;
