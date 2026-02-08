@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const title = currentPanel.querySelector(".project-name");
       const cta = currentPanel.querySelector(".go-to-project");
-      const image = currentPanel.querySelector(".img_home-a");
+      const image = currentPanel.querySelector(".img-home-a");
       const bg = document.querySelector(".transition-bg");
 
       // Debug: controlla che tutti gli elementi esistano
