@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+
 
   gsap.registerPlugin(ScrollTrigger);
 
@@ -48,6 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // -------------------------------
   // Click animazione su img-home-a
   // -------------------------------
+document.addEventListener("DOMContentLoaded", () => {
   gsap.utils.toArray(".img-home-a").forEach(trigger => {
     trigger.addEventListener("click", e => {
       e.preventDefault();
