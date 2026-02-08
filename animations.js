@@ -56,7 +56,7 @@
       const url = trigger.closest("a")?.href ?? "#";
       const currentPanel = trigger.closest(".panel");
       if (!currentPanel) return;
-
+      alert("Hai cliccato il pulsante3");
       const prevPanel = currentPanel.previousElementSibling;
       const nextPanel = currentPanel.nextElementSibling;
 
@@ -65,7 +65,7 @@
       const image = currentPanel.querySelector(".img_home");
       const bg = document.querySelector(".transition-bg");
       if (!title || !cta || !image || !bg) return;
-      alert("Hai cliccato il pulsante2");
+      
       const tl = gsap.timeline({
         defaults: { ease: "power2.inOut" },
         onComplete: () => window.location.href = url
