@@ -1,0 +1,4 @@
+// Delete horizontal scroll issue 
+html, body {
+  overflow-x: hidden;
+}
