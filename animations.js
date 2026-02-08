@@ -48,7 +48,7 @@
   // -------------------------------
   // Click animazione su img-home-a
   // -------------------------------
-document.addEventListener("DOMContentLoaded", () => {
+
   gsap.utils.toArray(".img-home-a").forEach(trigger => {
     trigger.addEventListener("click", e => {
       e.preventDefault();
@@ -118,4 +118,4 @@ window.addEventListener("load", () => {
 
   gsap.to(overlay, { y: "-100%", duration: 1.2, ease: "power4.inOut" });
   gsap.to(transitionLogo, { y: "100%", duration: 1.2, ease: "power4.inOut" });
-});
+
